@@ -1,0 +1,16 @@
+많은 타입이 있다는 것은
+
+conversions 그리고 more signatures를 염려한다는 것임
+
+
+static_cast (이것만 쓰셈)
+=> safe
+
+reinterpret_cast<type> (절대 쓰지 말것!)
+=> highly unsafe     // in C, "(doueble)변수명" cast와 같음
+
+dynamic_cast<type> (객체 지향쓸때 필요 근데.. 왠만하면 쓰지 말것!)
+=> used with classes
+
+const_cast<type>   (절대 쓰지 말것!) 
+=> cast away const-ness    (이걸 쓸거면 애초에 왜 const를 선언했냐!?)
