@@ -4,6 +4,11 @@
 
 using namespace std;
 
+/*
+const 위치에 따른 구문의 의미
+https://blog.codingcat.kr/24
+*/
+
 template <class T> // T is generic type
 T sum(const T data[], int size, T s=0)  
 // any data sitting in that array is not mutable!
