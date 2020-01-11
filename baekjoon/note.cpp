@@ -9,19 +9,9 @@ using namespace std;
 
 int main()
 {
-    int A, B, T;
+    int A = 2;
 
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    
-    cin >> T;
-
-    for(int i=0; i<T; ++i)
-    {
-        cin >> A >> B;
-        cout << A+B << "\n";
-    }
+    cout << A/2 << endl;
 
     return 0;
 }
