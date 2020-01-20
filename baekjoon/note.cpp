@@ -1,17 +1,53 @@
 #include <iostream>
-
-// cin, cout, endl은 printf scanf \n 보다 느리다. 그래서 프로그래밍 대회에서 아래 3개 함수를 통해 시간초과를 방지한다. 
-//C++을 사용하고 있고 cin/cout을 사용하고자 한다면, 
-//cin.tie(NULL)과 sync_with_stdio(false)를 둘 다 적용해 주고, endl 대신 개행문자(\n)를 쓰자.
-//단, 이렇게 하면 더 이상 scanf/printf/puts/getchar/putchar 등 C의 입출력 방식을 사용하면 안 된다.
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
+int d(int a){
+
+	string num = to_string(a);
+	int next = a;
+
+	for(int i=0; i<num.size(); ++i){
+		next += num.at(i) - '0';
+	}
+	return next;
+}
+
 int main()
 {
-    int A = 2;
+	int i =1;
+	while(i <= 10000){
 
-    cout << A/2 << endl;
-
+		d(i);
+	}
     return 0;
 }
+
+
+/*
+숏코딩
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int main(void) {
+	int n, x, num;
+	char * arr = NULL;
+	char inp[100000];
+	char sp[] = " ";
+	scanf("%d %d", &n, &x);
+	getchar();
+	gets(inp);
+	arr = strtok(inp, sp);
+	while (arr != NULL) {
+		num = atoi(arr);
+		if (num < x) {
+			printf("%s ", arr);
+		}
+		arr = strtok(NULL, sp);
+	}
+	return 0;
+}
+*/

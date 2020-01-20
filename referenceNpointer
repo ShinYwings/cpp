@@ -4,3 +4,6 @@ http://data-forge.blogspot.com/2012/01/1.html
 1. 포인터 변수는 주소값을 새로 할당받은 다음 주소값 저장
 2. 래퍼런스 변수는 포인터 변수와 달리 공간할당을 하지 않기 때문에 (레지스터에서 바로 복사됨) 속도 빠름 
 3. 래퍼런스 변수 만들때 주의점 : 참조하는 주소값이 사라지면!?
+
+vector<string> names {"david", "andy", "michael"};
+vector<string> *vector_ptr {nullptr}; // nullptr로 포인터 초기화 (아니면 쓰레기값 들어감)
