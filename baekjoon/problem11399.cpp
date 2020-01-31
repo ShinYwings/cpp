@@ -8,26 +8,18 @@ using namespace std;
 class dtime{
 
     private:
-        int start;
-        int end;
+        int due;
     
     public:
-        int getStart() const { return start; }
-        int getEnd() const { return end; }
-        void setStart(int t) { start = t; }
-        void setEnd(int t) { end = t; }
+        int getDue() const { return due; }
+        void setDue(int t) { due = t; }
         
-    dtime(){ this->start =0;
-             this->end = 0;
+    dtime(){ this->due =0;
              };
 };
 
 bool compare(dtime a, dtime b){
-
-    if ( a.getEnd() == b.getEnd() )
-        return a.getStart() < b.getStart();
-
-    return a.getEnd() < b.getEnd();
+    return a.getDue() < b.getDue();
 }
 
 int main()
@@ -40,13 +32,12 @@ int main()
 
     for(int i {0}; i<N; ++i){
 
-        int start, end;
+        int due;
         dtime d;
 
-        cin >> start >> end;
+        cin >> due;
 
-        d.setStart(start);
-        d.setEnd(end);
+        d.setDue(due);
 
         discuss.push_back(d);
 
@@ -59,12 +50,12 @@ int main()
 
     for(int i {0}; i<discuss.size(); ++i){
     
-            count += discuss.at(i).getEnd();
+            count += discuss.at(i).getDue();
             total += count;
         
     }
 
-    cout << count << endl;
+    cout << total << endl;
 
     return 0;
 

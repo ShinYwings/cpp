@@ -1,12 +1,15 @@
 #include <cstdio>
+#include <iostream>
+
+using std::fill_n;
 
 //시간초과 뜸
-// inline int Fibonachi(int n)
-// {
-//     if( n == 0 ) return 0;
-//     if( n == 1 ) return 1;
-//     return Fibonachi(n-1) + Fibonachi(n-2);
-// }
+inline int Fibonachi(int n)
+{
+    if( n == 0 ) return 0;
+    if( n == 1 ) return 1;
+    return Fibonachi(n-1) + Fibonachi(n-2);
+}
 
 //동적프로그래밍으로 짠 피보나치
 inline void Fibonachi2(long n, long arr[])
@@ -14,7 +17,7 @@ inline void Fibonachi2(long n, long arr[])
     if ( arr[n-1] == -1 ){
         Fibonachi2(n-1, arr);
     }
-
+    
     arr[n] = arr[n-1] + arr[n-2];
 }
 

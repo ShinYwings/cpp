@@ -24,17 +24,44 @@ class list_element{
 // List         head 의 기준 = 맨 오른쪽 ( 강의에서 그렇게 함)
 class list{
     public:
-        list():head(nullptr), cursor(nullptr){}     //default constructor
+        list():head(nullptr), cursor(nullptr){}     // default constructor
+        list(const int* arr, int n);                // tranfer data from another data
+        list(const list& lst){                      // copy constructor (== move constructor)
+            if(lst.head == 0){
+                head = 0; cursor =0;
+            }else{
+                cursor = lst.head;
+                list_element* h = new list_element();
+                list_element* previous;
+                head = h;
+                h->d = lst.head->d;
+                previous = h;
+
+                for (cursor = lst.head; cursor != 0; )
+                {
+                    h = new list_element();
+                    h->d = cursor ->d;
+                    previous->next = h;
+                    cursor = cursor->next;
+                    previous = h;
+                }
+            cursor = head;
+            }
+        }
         void prepend(int n); //insert at front value n
         void append(int n); //insert at back value n
         int get_element(){ return cursor->d; }
         void advance(){ cursor = cursor->next;}
         void print();
-        void release();
 
         ~list(){
             cout << "destructor called" << endl; // debug demonstration 소멸자를 가치있게 쓰는 좋은 습관!
-            release();
+            for ( cursor = head; cursor !=0; )
+            {
+                cursor = head->next;
+                delete head;
+                head = cursor;
+            }
         }
 
     private:
@@ -56,9 +83,10 @@ void list::append(int n)
         cursor = head = new list_element(n, head);
     else{
         list_element* temp = head;
-        head = new list_element(n, nullptr);
-        temp->next = head;
-        cursor = temp;
+        while (temp->next != nullptr){
+            temp->next = temp;
+        }
+        cursor = new list_element(n, nullptr);
     }
 }
 
@@ -71,22 +99,24 @@ void list::print(){
     cout << "###" <<endl;
 }
 
-void list::release()
-{
-    delete head;
-    delete cursor;
-}
-
 int main()
 {
     list a, b;
-    a.append(9); a.append(8);
+    int data[10] = {3, 4, 6, 7, -3, 5};
+    list d(data, 6);
+    list e(data, 10);
+    a.prepend(9); a.prepend(8);
     cout << " list a " << endl;
     a.print();
-    // for(int i = 0; i<40; ++i)
-    //     b.append(i*i);
-    // cout<< "list b " << endl;
-    // b.print();
+    for(int i = 0; i<40; ++i)
+        b.prepend(i*i);
+    cout<< "list b " << endl;
+    b.print();
+    list c(b); // deep copy
+    //list c = b;  shallow copy     constructor 부분에서 동적 
+    c.print();
+    d.print();
+    e.print();
 
     return 0;
 }
