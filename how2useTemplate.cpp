@@ -13,8 +13,8 @@ template <class T> // T is generic type
 T sum(const T data[], int size, T s=0)  
 // any data sitting in that array is not mutable!
 // data 변환 못시키게 함으로써 실수 방지하는 좋은 습관
-// s will default to 0
-{
+// s will default to 0 근데 multi template variables 에서는 default value 안써주는게 원칙
+{ 
     for( int i = 0; i < size; ++i)
     // 지금은 컴파일러가 알아서 바꿔주지만 예전에는
     // ++i는 i를 바로 증가시켜서 반환하지만

@@ -21,12 +21,12 @@ bool is_connected(bool *graph[], int size)  // still going to the open set each 
     int old_size = 0, c_size = 0;
     bool* close = new bool[size];       // close_set      init: Nothing
     bool* open = new bool[size];        // open_set       init: possibly many or not
-    for(int i = 0; i < size; ++i)      // each iteration will add one node to the closed set
+    for(int i = 0; i < size; ++i)       // each iteration will add one node to the closed set
         open[i] = close[i] = false;
     open[0] = true;                     // open set has node 0 on it
 
     //Add to close
-    while(c_size < size){   // keeping track of c_size(=the size of a closed set)
+    while(c_size < size){   // keep tracking of c_size(= the size of a closed set)
         for (int i = 0; i < size; ++i){
 
                 old_size = c_size;

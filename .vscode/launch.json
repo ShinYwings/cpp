@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "clang++ build and debug active file",
+            "name": "clang++-6.0 build and debug active file",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
@@ -14,7 +14,8 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb",
+            // "MIMode": "lldb",
+            "MIMode": "gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -22,8 +23,9 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "clang++ build active file",
-            "miDebuggerPath": "/usr/bin/lldb-mi"
+            "preLaunchTask": "clang++-6.0 build active file",
+            // "miDebuggerPath": "/usr/bin/lldb-mi-6.0"
+            "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
 }

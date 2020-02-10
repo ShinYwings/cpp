@@ -5,7 +5,9 @@ using namespace std;
 /*
     new / delete
 
-    class / constructor / destructor 
+    class / constructor / destructor
+
+    operator syntax
 
     의 설명이 포함되어 있음.
 */
@@ -37,7 +39,10 @@ class point{
         //prefered style: 대입이 필요 없어서 const 멤버변수도 초기화 가능!
         point():x(0.0),y(0.0){}
 
-        ~point(){}
+        ~point(){
+            cout << "destructor called" << endl; // 좋은 습관
+            delete ptr;
+        }
 
 };
 
@@ -50,45 +55,6 @@ ostream& operator<< (ostream& out, const point& p){
     out << "(" << p.getx() << ", " << p.gety() << ")";
     return out;
 }
-
-
-
-    // ******BETTER in C++ (예제 linked list) **********
-
-    struct slistelem{ char* data; slistelem* next;};
-
-    class slist{ //singly linked list
-    
-        public:
-            slist():h(0){} // pointer 초기화는 0으로 함
-            ~slist();
-            void release();
-
-            void prepend(char* c);
-
-        private:
-            slistelem* h; // list head
-    };
-
-    slist::~slist(){
-        
-        cout << "destructor called" << endl; // debug demonstration 소멸자를 가치있게 쓰는 좋은 습관!
-        release();
-    }
-
-    void slist::prepend (char* c)
-    {
-        slistelem* temp = new slistelem;
-        temp->next = h;
-        temp->data = c;
-        h = temp; // update h;
-    }
-
-    void slist::release()
-    {
-        delete h;
-    }
-
 
 
 int main()

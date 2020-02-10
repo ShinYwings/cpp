@@ -14,7 +14,8 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb",
+            // "MIMode": "lldb",
+            "MIMode": "gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -23,7 +24,8 @@
                 }
             ],
             "preLaunchTask": "clang++-6.0 build active file",
-            "miDebuggerPath": "/usr/bin/lldb-mi-6.0"
+            // "miDebuggerPath": "/usr/bin/lldb-mi-6.0"
+            "miDebuggerPath": "/usr/bin/gdb"
         }
     ]
 }
