@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "clang++-6.0 build and debug active file",
+            "name": "g++ - Build and debug active file",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}",
@@ -14,7 +14,6 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            // "MIMode": "lldb",
             "MIMode": "gdb",
             "setupCommands": [
                 {
@@ -23,8 +22,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "clang++-6.0 build active file",
-            // "miDebuggerPath": "/usr/bin/lldb-mi-6.0"
+            "preLaunchTask": "g++ build active file",
             "miDebuggerPath": "/usr/bin/gdb"
         }
     ]

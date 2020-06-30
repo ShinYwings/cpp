@@ -30,6 +30,7 @@ int main()
     int min {100000001};
 
     int i =0 ;
+    
     while(money != 0){
 
         int temp = money/coin.at(i);
@@ -38,9 +39,7 @@ int main()
             count += temp;
             money = money % coin.at(i);
         }
-
         i++;
-        
     }
 
     cout << count << endl;

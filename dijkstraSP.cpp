@@ -64,11 +64,9 @@ int main()
 
     for(int i =0; i<SIZE; ++i){
         for(int j = 0; j< SIZE; j++){
-
             if(graph[i][j]) cout << "1 ";
             else cout << "0 ";
         }
-
         cout << endl;
     }
 

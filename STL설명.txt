@@ -1,0 +1,15 @@
+new libraries in C++11
+
+<regex>
+
+<thread>  multicore multiprogramming 
+
+
+<unordered_map>
+log n operation -> red black tree
+
+<array>	벡터는 커질수 있지만 array는 fixed
+
+<forward_list> 벡터는 doubled_ linked_list이지만 forward_list 는 singly linked list 라서 공간 아낄수잇음
+
+
