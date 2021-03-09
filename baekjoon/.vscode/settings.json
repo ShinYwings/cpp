@@ -4,6 +4,7 @@
         "istream": "cpp",
         "streambuf": "cpp",
         "cstring": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "xtree": "cpp"
     }
 }
